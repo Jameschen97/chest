@@ -1,0 +1,123 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播组件</title>
+    <script src="utils.js"></script>
+    <style>
+        .gua-hide {
+            display: none;
+        }
+        .gua-item {
+            /* opacity: 0.6; */
+            filter: grayscale(100%);
+        }
+        .gua-item.gua-highlight{
+            /* opacity: 1; */
+            filter: initial;
+        }
+        .gua-item.gua-highlight img{
+            width: 150px;
+            height: 150px;
+        }
+        .gua-item img {
+            width: 100px;
+            height: 100px;
+        }
+        img {
+            transition: width 1s, height 1s;
+        }
+        .gua-slide {
+            position: relative;
+        }
+        .gua-slide-image {
+            display: none;
+        }
+        .gua-active {
+            display: block;
+        }
+        .gua-slide-pre {
+            left: 0;
+            height: 50px;
+        }
+        .gua-slide-next {
+            right: 0;
+            height: 50px;
+        }
+        .gua-vertical-center {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .gua-horizontal-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        .gua-slide-indicators {
+            position: absolute;
+            bottom: 10px;
+        }
+        .gua-slide-indi {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: red;
+            border-radius: 50%;
+
+        }
+        .gua-white {
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1, 点击显示的菜单 -->
+    <div class="gua-1 gua-hide">
+        <div class="">
+            <button class="gua-menu-toggle">点击展开详情</button>
+            <div class="gua-menu-content">
+                详情
+            </div>
+        </div>
+        <div class="">
+            <button class="gua-menu-toggle">点击展开详情</button>
+            <div class="gua-menu-content">
+                详情
+            </div>
+        </div>
+    </div>
+    <!-- 2, 鼠标滑过高亮的菜单选择效果 -->
+    <div class="gua-2 gua-hide">
+        <div class="gua-list">
+            <div class="gua-item">
+                <img src="images/1.jpg">
+            </div>
+            <div class="gua-item">
+                <img src="images/2.jpg">
+            </div>
+            <div class="gua-item">
+                <img src="images/3.jpg">
+            </div>
+        </div>
+    </div>
+    <!-- 3, 轮播图 -->
+    <div class="gua-3">
+        <div class="gua-slide" data-imgs=3 data-active=0>
+            <img id=id-guaimage-0 class="gua-slide-image gua-active" src="images/1.jpg" alt="">
+            <img id=id-guaimage-1 class="gua-slide-image" src="images/2.jpg" alt="">
+            <img id=id-guaimage-2 class="gua-slide-image" src="images/3.jpg" alt="">
+            <button class="gua-slide-pre gua-vertical-center">上一张</button>
+            <button class="gua-slide-next gua-vertical-center">下一张</button>
+            <div class="gua-slide-indicators gua-horizontal-center">
+                <div id=id-guaindi-0 class="gua-slide-indi gua-white"></div>
+                <div id=id-guaindi-1 class="gua-slide-indi"></div>
+                <div id=id-guaindi-2 class="gua-slide-indi"></div>
+            </div>
+        </div>
+    </div>
+    <!-- <script src="toggle1.js"></script> -->
+    <!-- <script src="toggle2.js"></script> -->
+    <!-- <script src="toggle3.js"></script> -->
+    <script src="lunbo.js"></script>
+</body>
+</html>
