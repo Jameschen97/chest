@@ -43,19 +43,25 @@ var stop = function () {
     clearInterval(window.timer)
 }
 
-var bindEventSlide = function(selector, step=1) {
-    bindAll(selector, 'click', function() {
+var bindEventSlide = function(step=1) {
+    bindAll(".gua-slide", 'click', function(event) {
+        id = event.target.id
+        if (id === "gua-slide-pre") {
+            step = -1
+        } else if (id === "gua-slide-next") {
+            step = 1
+        }
         slide(step)
     })
 }
 
-var bindEventSlidePre = function() {
-    bindEventSlide('.gua-slide-pre', -1)
-}
+// var bindEventSlidePre = function() {
+//     bindEventSlide('.gua-slide-pre', -1)
+// }
 
-var bindEventSlideNext = function() {
-    bindEventSlide('.gua-slide-next', 1)
-}
+// var bindEventSlideNext = function() {
+//     bindEventSlide('.gua-slide-next', 1)
+// }
 
 var bindEventIndi = function() {
     bindAll('.gua-slide-indi', 'click', function(event) {
@@ -66,8 +72,9 @@ var bindEventIndi = function() {
 }
 
 var __main = function() {
-    bindEventSlidePre()
-    bindEventSlideNext()
+    // bindEventSlidePre()
+    // bindEventSlideNext()
+    bindEventSlide()
     bindEventIndi()
     play()
 }
